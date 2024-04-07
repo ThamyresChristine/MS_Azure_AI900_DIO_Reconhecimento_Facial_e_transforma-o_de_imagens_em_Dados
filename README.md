@@ -11,45 +11,45 @@ O _Vision Studio_ é um dos serviços de Inteligência Artificial do Azure, volt
 ---
 Primeiro, acesse sua conta Azure (pelo portal Azure) e clique em _Create a resource_.
 
-![img1]()
+![img1](Prints/Print_01.png)
 
 No menu lateral esqurdo clique em _AI + Machine Learning_. A busca te retornará todos os serviços dessa seção. Escolha o _Azure AI services_ e clique em _create_.
 
-![img2]()
+![img2](Prints/Print_02.png)
 
 O Azure solicita que você preencha alguns dados, como o _Resource group_, onde você pode criar um ou selecionar um já existente.
 
-![img3]()
+![img3](Prints/Print_03.png)
 
 Além disso, você precisa criar um nome e definir o _Pricing tier_. E não esqueça de marcar a _checkbox_, onde você concorda com os termos do Azure AI Services.
 
-![img4]()
+![img4](Prints/Print_04.png)
 
 ***
 ## Acessando e configurando o AI Vision Studio
 
 Após a configuração do _Resource group_, acesse o Visio Studio (_portal.vision.cognitive.azure.com_). Na página inicial, clique em _View all resources_.  
 
-![img5]()
+![img5](Prints/Print_05.png)
 
 Selecione o _resource_ criado anteriormente no portal do Azure e clique em _Select as default resource_.
 
-![img6]()
+![img6](Prints/Print_06.png)
 
 ***
 ## Acessando a ferramenta
 
 Retorne para a página inicial do Vision Studio. Escolha a ferramenta que deseja utilizar - no meu caso, eu quero o _OCR - Optical Character Recognition_, que faz o reconhecimento de textos em imagens.
 
-![img7]()
+![img7](Prints/Print_07.png)
 
 E seleciono a API _Extract text from images_.
 
-![img8]()
+![img8](Prints/Print_08.png)
 
 No _Read API_, eu posso enviar um arquivo do computador local e tirar uma foto na hora, mas antes é necessário marcar a _checkbox_ que informa que a demonstração vai utilizar o recurso criado no portal da Azure e pronto! Agora é enviar as imagens e ver como a ferramenta analisa as imagens e reconhece os textos.
 
-![img9]()
+![img9](Prints/Print_09.png)
 
 
 ---
@@ -58,63 +58,63 @@ No _Read API_, eu posso enviar um arquivo do computador local e tirar uma foto n
 
 - **Imagem 01**: Como primeiro exemplo, adicionei uma imagem sem texto de propósito para ver como resultado _"null"_. Mas para minha surpresa, o _Read_ reconheceu uma linha como valor numérico 211, numa imagem que está de boa qualidade. E no json, a confiança (ou acurácia) até apresenta um valor pouco alto - 63%.
 
-![Output_01]()
+![Output_01](Outputs/Output_01.png)
 
 - **Imagem 02**: Uma imagem simples, de boa qualidade, onde o texto claramente se destaca, o _Read_ reconheceu perfeitamente as duas palavras presentes. No json, a confiança até apresenta um valor excelente para as duas palavras - 99% e 98%, respectivamente.
 
-![Output_02]()
+![Output_02](Outputs/Output_02.png)
 
 - **Imagem 03**: Nessa imagem, apesar de o texto não estar em uma superfície plana, como uma folha de papel, ele está nítido e com fundo branco. O _Read_ reconheceu perfeitamente o texto. No json, a confiança até apresenta o valor de 99% para quase todas as palavras, com exceção de _o_(62%) e _Colossenses_(77%), mas mesmo assim, é um valor aceitável.
 
-![Output_03]()
+![Output_03](Outputs/Output_03.png)
 
 - **Imagem 04**: Como é uma foto de uma tela de computador, a imagem está claramente com a nitidez ruim. Mesmo assim, o _Read_ conseguiu extrair algumas palavras. Detalhe que ele reconheceu o _X_ para fechar a janela como se fosse a letra X. No json, temos a maioria das palavras com confiança de 98% e outras com 33%.
 
-![Output_04]()
+![Output_04](Outputs/Output_04.png)
 
 - **Imagem 05**: Outra foto de tela, aqui com a nitidez perfeita. Percebe-se que o _Read_ faz a leitura assim como fazemos com uma folha de papel - iniciando no canto superior direito e seguindo para a esquerda, uma linha atrás da outra - mas que isso não se aplica em todos os casos, pois aqui a primeira linha é _jogos_, a seguinte é _fazer_, a terceira contém o título do vídeo e só na quarta linha está _login_. O correto seria _fazer login_ em uma mesma linha, mas o _Read_ não reconheceu assim. No json, temos a maioria das palavras com confiança de 98%, mas algumas com o valor bem baixo (_/01_ com 3%).
 
-![Output_05]()
+![Output_05](Outputs/Output_05.png)
 
 - **Imagem 06**: Testando para valer o _Read_ com texto à mão. Ele reconheceu bem a maior parte do texto, e até algumas palavras do outro lado da folhar por causa da sombra, mas alguns detalhes, como em _Ctrl + N_, em que a letra N está dentro de um quadrado, ele reconheceu como _\N/_ e não reconheceu as setas. No json, a maioria das palavras tinha confiança com valor alto - destaque para _the_ e _screen_, ambas com valor 1 - e algumas expressões como _Ctrl+B_ tiveram valor quase zero.
 
-![Output_06]()
+![Output_06](Outputs/Output_06.png)
 
 - **Imagem 07**: Uma foto que não está muito nítida, mas podemos entender e o _Read_ também reconheceu o texto. Aqui fica claro que ele faz a leitura da esquerda para a direita como deve ser, mas que nesse caso isso não se aplica, já é um cronograma de aulas e o ideal seria a leitura no sentido de cima para baixo. No json, o valor da confiança não foi muito alto, ficou entre 60% e 80% e por mais que as palavras se repetissem aqui, elas apresentaram valores de confiança totalmente diferentes.
 
-![Output_07]()
+![Output_07](Outputs/Output_07.png)
 
 - **Imagem 08**: Aqui, além do reconhecimento de palavras, o _Read_ também reconheceu alguns pontinhos da linha do sumário. No json, as palavras apresentaram valor de confiança bem alto (98%), já os pontinhos ficam com um valor um pouco baixo (60%).
 
-![Output_08]()
+![Output_08](Outputs/Output_08.png)
 
 - **Imagem 09**: O _Read_ reconhece muito bem os dois textos da página. Mas como citado anteriormente, o _Read_ sempre faz a leitura da esquerda para a direita e os dois textos se misturam no resultado. No json, a grande maioria das palavras ficou com o valor de confiança em 99%.
 
-![Output_09]()
+![Output_09](Outputs/Output_09.png)
 
 - **Imagem 10**: O _Read_ reconheceu, muito bem o texto e até o o link do vídeo do Youtubem mesmo que estando bem pequeno. O resultado ficou um pouco confuso, já que o _Read_ não reconhece que há textos separados e novamente, faz a leitura da esquerda para a direita. No json, a maioria das palavras tem o valor de confiança em torno de 98%, com exceção de alguns símbolos confusos.
 
-![Output_10]()
+![Output_10](Outputs/Output_10.png)
 
 - **Imagem 11**: Os elementos textuais estão bem claros e organizados aqui, então o _Read_ fez a transcrição da página perfeitamente. No json, a maioria das palavras tem o valor de confiança em torno de 99%.
 
-![Output_11]()
+![Output_11](Outputs/Output_11.png)
 
 - **Imagem 12**: O _Read_ reconheceu perfeitamente todos os elementos textuais presentes na imagem, mas o resultado ficou um pouco confuso, já que o _Read_ não reconhece a organização das perguntas e da tabela, sempre fazendo a leitura da esquerda para a direita. No json, a maioria das palavras tem o valor de confiança em torno de 99%.
 
-![Output_12]()
+![Output_12](Outputs/Output_12.png)
 
 - **Imagem 13**: A imagem não tem muitos elementos textuais e eles estão, de certa forma, esparçardos, mas o _Read_ reconheceu melhor o texto que está organizado na parte inferior e o que está com letras grandes. A confiança variou bastante nessa análise, entre 20% e 90%.
 
-![Output_13]()
+![Output_13](Outputs/Output_13.png)
 
 - **Imagem 14**: Aqui temos a praticamente a mesma imagem da anterior, com uma pequena diferença. Mas diferente da primeira análise, aqui o _Read_ reconheceu bem o texto na parte inferior. Ainda assim, a confiança variou bastante nessa análise, entre 30% e 90%.
 
-![Output_14]()
+![Output_14](Outputs/Output_14.png)
 
 - **Imagem 15**: Na última imagem para análise do _Read_, ele reconheceu todo texto na página, até as letras que indicam o dia na parte superior esquerda, reconheceu também até o símbolo de divisão, mas não entendeu que era uma operação porque faz  leitura da esquerda para a direita. No json, a confiança variou bastante nessa análise, entre 20% e 90%.
 
-![Output_15]()
+![Output_15](Outputs/Output_15.png)
 
 ---
 ## Conclusões
